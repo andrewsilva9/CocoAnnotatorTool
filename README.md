@@ -1,0 +1,7 @@
+# MSCOCO Annotator:
+This is a simple couple of scripts to get a list of images / bounding boxes in the format that Darknet/YOLO wants them, so that one can retrain YOLO on MSCOCO (and their own data, if they want to tack it on the files).
+
+####Usage:
+Download the MSCOCO datasets and the clone the MSCOCO API, then follow their instructions to make / build the python API. Once you have all of that ready, just drop the "make_darknet_list.py" into the PythonAPI folder, and create a 'labels' directory. You'll need to change the hard-coded paths I have in there (so get rid of '/Users/andrewsilva/Desktop/MSCOCO' and put your own paths in). Also note that I don't have the images in separate folders. My directory is just images/\*.jpg, not images/train/\*.jpg or images/val/\*.jpg. Either make a fix to find the appropriate folder, or move your data out into one giant list.
+
+Once you have make_darknet_list.py running, you'll get a text file that is a giant list of all associate images (as well as all of the .txt files with bounding boxes and object numbers, which will be in the labels directory). To give them full paths, you can either alter make_darknet_list.py, or just run 'convert_filesystem.py'. Finishes instantly, just creates a new .txt called 'fixed_files.txt' that will have full paths to your images.
