@@ -15,8 +15,7 @@ coco=COCO(annFile)
 #
 # nms=[cat['name'] for cat in cats]
 # for index, name in enumerate(nms):
-#     indexp = index+1
-#     print indexp, ':', name
+#     print index, ':', name
 #
 # print 'COCO categories: \n\n', ' '.join(nms)
 
@@ -52,6 +51,7 @@ for cat in categories:
                     top = bbox[1] / len(arr)
                     width = bbox[2] / len(arr[0])
                     height = bbox[3] / len(arr)
+                    # Should the category id that I add be true, or a new one because I'm reducing the number of categories?
                     outfile.write('{:d} {:f} {:f} {:f} {:f} \n'.format(cat_id, left, top, width, height))
             outfile.close()
             text_out.write(img['file_name'] + '\n')
