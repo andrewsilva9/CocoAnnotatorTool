@@ -1,9 +1,4 @@
-import os
 from pycocotools.coco import COCO
-from pycocotools import mask
-import numpy as np
-import skimage.io as io
-import pylab
 import cv2
 
 text_out = open('/Users/andrewsilva/Desktop/MSCOCO/coco/all_files.txt', 'w')
@@ -22,9 +17,9 @@ coco=COCO(annFile)
 # Keep a list of images so far so that we don't add anything twice
 imgs_so_far = []
 # List of all categories I want
-categories=['person', 'bottle', 'cup', 'bowl', 'tv', 'laptop', 'cell phone', 'book']
+categories=['person', 'backpack', 'bottle', 'cup', 'bowl', 'banana', 'apple', 'orange', 'pizza', 'donut', 'tv', 'laptop', 'cell phone', 'book']
 # IDs for the categories above
-category_ids = [0, 39, 41, 45, 62, 63, 67, 73]
+category_ids = [0, 24, 39, 41, 45, 46, 47, 49, 53, 54, 62, 63, 67, 73]
 # categories = ['laptop']
 # For each category, get images that fit for that
 for cat in categories:
